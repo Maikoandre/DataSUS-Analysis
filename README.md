@@ -1,6 +1,6 @@
 # Projeto de Análise de Dados do DataSUS (SIH)
 
-Este projeto foca na Análise Exploratória de Dados (EDA) de internações hospitalares do Sistema de Informações Hospitalares (SIH) do DataSUS. O objetivo é processar, analisar e extrair insights a partir dos microdados de Autorização de Internação Hospitalar (AIH).
+Este projeto foca na Análise Exploratória de Dados (EDA) de internações hospitalares do Sistema de Informações Hospitalares (SIH) do DataSUS. O objetivo é processar, analisar e extrair insights a partir dos metadados do SIH.
 
 O projeto é composto por duas partes principais:
 1.  **Análise Exploratória (`notebooks/sih_analysis.ipynb`):** Um notebook Jupyter que detalha o processo de coleta, limpeza, pré-processamento e análise exploratória dos dados brutos (em formato `.csv`).
