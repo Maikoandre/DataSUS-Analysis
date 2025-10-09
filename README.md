@@ -1,90 +1,113 @@
-# DataSUS Data Analysis Project (SIH and SINAN)
+# Projeto de Análise de Dados do DataSUS (SIH)
 
-This project focuses on the Exploratory Data Analysis (EDA) of public health system data in Brazil (DataSUS), specifically covering the **Hospital Information System (SIH)** and the **Notifiable Diseases Information System (SINAN)**, with an emphasis on Dengue cases.
+Este projeto foca na Análise Exploratória de Dados (EDA) de internações hospitalares do Sistema de Informações Hospitalares (SIH) do DataSUS. O objetivo é processar, analisar e extrair insights a partir dos microdados de Autorização de Internação Hospitalar (AIH).
 
----
+O projeto é composto por duas partes principais:
+1.  **Análise Exploratória (`notebooks/sih_analysis.ipynb`):** Um notebook Jupyter que detalha o processo de coleta, limpeza, pré-processamento e análise exploratória dos dados brutos (em formato `.csv`).
+2.  **Dashboard Interativo (`app.py`):** Uma aplicação Streamlit que carrega dados pré-processados (em formato `.parquet`) e apresenta os principais indicadores e visualizações focados nas internações do estado da Bahia (BA).
 
-## 📝 Index
+## 📊 Principais Análises
 
-* [About the Project](#-about-the-project)
-* [File Structure](#-file-structure)
-* [Technologies Used](#-technologies-used)
-* [Getting Started](#-getting-started)
-    * [Prerequisites](#prerequisites)
-    * [Installation](#installation)
-* [How to Use](#-how-to-use)
+O dashboard interativo (`app.py`) foca nos dados da Bahia e apresenta as seguintes métricas e visualizações:
 
----
+### Visão Geral (Bahia)
+* Total de Internações
+* Custo Total e Custo Médio por Internação
+* Percentual e Total de Óbitos
 
-## 📖 About the Project
+### Análise Demográfica
+* Distribuição de internações por Sexo
+* Distribuição por Faixa Etária
+* Distribuição por Raça/Cor
 
-The goal of this repository is to process, analyze, and extract insights from large volumes of DataSUS records. The main hospital analysis is contained in the `sia.ipynb` notebook and is complemented by a Streamlit Dashboard (`app.py`) focused on Hospital Admissions (SIH) data for the state of Bahia.
+### Análise Clínica e Operacional
+* Tempo Médio de Permanência por Faixa Etária
+* Distribuição das internações por Capítulo do CID-10 (Diagnóstico Principal)
 
-The project also includes sample datasets, such as Dengue notification data from SINAN for 2024 and a Brazilian municipalities file, enabling analysis and data merging.
+### Análise Geográfica e Hospitalar
+* Top 10 Municípios (local do estabelecimento) com maior número de internações.
+* Top 10 Hospitais (por CNES) com:
+    * Maior Número de Internações
+    * Maior Taxa de Mortalidade (com filtro de N mínimo de internações)
+    * Maior Tempo Médio de Permanência
+    * Maior Proporção de Internações em UTI
 
-## 🗂️ File Structure
+## 🗂️ Estrutura do Projeto
 
-* **`sia.ipynb`**: Primary Jupyter Notebook containing the code for the exploratory data analysis of the Ambulatory Information System (SIA) or Hospital Information System (SIH) data.
-* **`app.py`**: Streamlit application for visualizing key metrics and charts from the SIH data for Bahia.
-* **`datasets/`**: Directory containing the data used in the analyses.
-    * **`RD202401.parquet`**: Likely a "Reduced Ambulatory Production" (SIA) file for January 2024, in Parquet format.
-    * **`sinan_dengue_sample_2024.parquet`**: A sample file with Dengue notification data from SINAN for 2024.
-    * **`municipios.csv`**: CSV file containing a list of Brazilian municipalities, likely including IBGE codes, names, and UF (State) information.
+* `app.py`: Aplicação principal do Dashboard Streamlit.
+* `notebooks/sih_analysis.ipynb`: Notebook Jupyter com a análise exploratória (EDA) completa.
+* `data/`: Diretório onde os dados devem ser armazenados.
+* `LICENSE`: Licença do projeto.
+* `.gitignore`: Arquivo de configuração do Git.
 
-## 🛠️ Technologies Used
+## 🛠️ Tecnologias Utilizadas
 
-* **Python 3.11**
-* **Jupyter Notebook / Jupyter Lab**
-* **Pandas**
-* **PyArrow**
-* **Seaborn**
-* **Streamlit** (for the Dashboard)
+* **Python**
+* **Streamlit**: Para o dashboard interativo.
+* **Pandas**: Para manipulação e análise dos dados.
+* **Jupyter Lab/Notebook**: Para a análise exploratória.
+* **Plotly**: Para visualizações interativas (usado no notebook).
+* **Seaborn & Matplotlib**: Para visualizações estáticas (usado no `app.py`).
+* **PyArrow**: Para leitura de arquivos `.parquet`.
 
-## 🏁 Getting Started
+## 🏁 Como Executar
 
-Follow these instructions to set up and run the project locally.
+Siga estas instruções para configurar e executar o projeto localmente.
 
-### Prerequisites
+### 1. Pré-requisitos
 
-You will need to have Python 3 and a package manager (like `pip`) installed on your machine.
+É necessário ter o Python 3.x e o `pip` instalados.
 
-### Installation
+### 2. Instalação
 
-1.  Clone the repository:
+1.  Clone o repositório:
     ```bash
     git clone https://github.com/Maikoandre/DataSUS-Analysis.git
-    ```
-2.  Navigate to the project directory:
-    ```bash
     cd DataSUS-Analysis
     ```
-3.  Install the required libraries. (It is recommended to create a virtual environment).
+
+2.  (Recomendado) Crie e ative um ambiente virtual:
     ```bash
-    # Create a virtual environment (optional, but recommended)
     python -m venv venv
-    source venv/bin/activate  # On Windows: .\venv\Scripts\activate
-    
-    # Install the libraries
-    pip install jupyterlab pandas pyarrow seaborn streamlit matplotlib
+    # Linux/macOS
+    source venv/bin/activate
+    # Windows
+    .\venv\Scripts\activate
     ```
 
-## 🏃 How to Use
+3.  Instale as dependências:
+    ```bash
+    pip install streamlit pandas matplotlib seaborn plotly pyarrow
+    ```
 
-### For Notebook Analysis:
+### 3. Obtenção dos Dados
 
-1.  Start Jupyter Lab (or Notebook) from your terminal:
+Este repositório não armazena os arquivos de dados. Você deve baixá-los manualmente e colocá-los em um diretório chamado `datasets/` na raiz do projeto.
+
+Os arquivos necessários são:
+* **Dados do SIH (AIH Reduzida):**
+    * Para o **Notebook (`sih_analysis.ipynb`)**: Requer o arquivo `RD202401.csv` (ou o mês/ano de sua escolha) do [portal DataSUS](https://datasus.saude.gov.br/transferencia-de-arquivos/).
+    * Para o **Dashboard (`app.py`)**: Requer o arquivo `RD202401.parquet`. O `app.py` espera este formato; você pode converter o `.csv` para `.parquet` para otimizar o carregamento.
+* **Dados Auxiliares:**
+    * `municipios.csv`: Arquivo de municípios brasileiros (provavelmente do IBGE).
+    * `cnes_estabelecimentos.csv`: Arquivo de Cadastro Nacional de Estabelecimentos de Saúde (CNES), disponível no [portal DataSUS](https://datasus.saude.gov.br/transferencia-de-arquivos/).
+
+### 4. Executando a Análise (Notebook)
+
+1.  Inicie o Jupyter Lab:
     ```bash
     jupyter lab
     ```
-2.  In your browser, open the `sia.ipynb` file.
-3.  Execute the notebook cells to view the data analysis.
+2.  Abra o arquivo `notebooks/sih_analysis.ipynb` e execute as células.
 
-### For Streamlit Dashboard:
+### 5. Executando o Dashboard (Streamlit)
 
-1.  Run the Streamlit application from your terminal:
+1.  Execute o `app.py` no seu terminal:
     ```bash
     streamlit run app.py
     ```
-2.  The dashboard will open in your default browser, displaying the analysis of SIH data for Bahia.
+2.  O dashboard será aberto automaticamente no seu navegador.
 
----
+## 📄 Licença
+
+Este projeto é distribuído sob os termos da licença especificada no arquivo `LICENSE`.
