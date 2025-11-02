@@ -52,7 +52,7 @@ You will need to have Python 3 and a package manager (like `pip`) installed on y
 
 1.  Clone the repository:
     ```bash
-    git clone [https://github.com/Maikoandre/DataSUS-Analysis.git](https://github.com/Maikoandre/DataSUS-Analysis.git)
+    git clone https://github.com/Maikoandre/DataSUS-Analysis.git
     ```
 2.  Navigate to the project directory:
     ```bash
