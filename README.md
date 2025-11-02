@@ -1,78 +1,90 @@
-# Projeto de Análise de Dados do DataSUS (SIH e SINAN)
+# DataSUS Data Analysis Project (SIH and SINAN)
 
-Este projeto para a análise exploratória de dados dos sistemas de saúde pública do Brasil (DataSUS), com foco no **Sistema de Informações Hospitalares (SIH)** e no **Sistema de Informação de Agravos de Notificação (SINAN)**, especificamente para casos de Dengue.
-
----
-
-## 📝 Índice
-
-* [Sobre o Projeto](#-sobre-o-projeto)
-* [Estrutura dos Arquivos](#-estrutura-dos-arquivos)
-* [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-* [Como Começar](#-como-começar)
-    * [Pré-requisitos](#pré-requisitos)
-    * [Instalação](#instalação)
-* [Como Usar](#-como-usar)
+This project focuses on the Exploratory Data Analysis (EDA) of public health system data in Brazil (DataSUS), specifically covering the **Hospital Information System (SIH)** and the **Notifiable Diseases Information System (SINAN)**, with an emphasis on Dengue cases.
 
 ---
 
-## 📖 Sobre o Projeto
+## 📝 Index
 
-O objetivo deste repositório é processar, analisar e extrair insights de grandes volumes de dados do DataSUS. A análise principal está contida no notebook `sih.ipynb`, que provavelmente lida com os dados de produção hospitalar (SIH).
+* [About the Project](#-about-the-project)
+* [File Structure](#-file-structure)
+* [Technologies Used](#-technologies-used)
+* [Getting Started](#-getting-started)
+    * [Prerequisites](#prerequisites)
+    * [Installation](#installation)
+* [How to Use](#-how-to-use)
 
-O projeto também inclui datasets de amostra, como dados de notificação de Dengue do SINAN para 2024 e um arquivo de municípios, permitindo a análise e o cruzamento de informações.
+---
 
-## 🗂️ Estrutura dos Arquivos
+## 📖 About the Project
 
-* **`sih.ipynb`**: Notebook Jupyter principal contendo o código para análise dos dados do Sistema de Informações Ambulatoriais (SIA).
-* **`datasets/`**: Diretório contendo os dados utilizados nas análises.
-    * **`RD202401.parquet`**: Provavelmente um arquivo de "Produção Ambulatorial Reduzida" (SIA) referente a Janeiro de 2024, em formato Parquet.
-    * **`sinan_dengue_sample_2024.parquet`**: Um arquivo de amostra com dados de notificações de Dengue do SINAN para o ano de 2024.
-    * **`municipios.csv`**: Arquivo CSV contendo uma lista de municípios brasileiros, provavelmente com códigos IBGE, nomes e UFs.
+The goal of this repository is to process, analyze, and extract insights from large volumes of DataSUS records. The main hospital analysis is contained in the `sia.ipynb` notebook and is complemented by a Streamlit Dashboard (`app.py`) focused on Hospital Admissions (SIH) data for the state of Bahia.
 
-## 🛠️ Tecnologias Utilizadas
+The project also includes sample datasets, such as Dengue notification data from SINAN for 2024 and a Brazilian municipalities file, enabling analysis and data merging.
+
+## 🗂️ File Structure
+
+* **`sia.ipynb`**: Primary Jupyter Notebook containing the code for the exploratory data analysis of the Ambulatory Information System (SIA) or Hospital Information System (SIH) data.
+* **`app.py`**: Streamlit application for visualizing key metrics and charts from the SIH data for Bahia.
+* **`datasets/`**: Directory containing the data used in the analyses.
+    * **`RD202401.parquet`**: Likely a "Reduced Ambulatory Production" (SIA) file for January 2024, in Parquet format.
+    * **`sinan_dengue_sample_2024.parquet`**: A sample file with Dengue notification data from SINAN for 2024.
+    * **`municipios.csv`**: CSV file containing a list of Brazilian municipalities, likely including IBGE codes, names, and UF (State) information.
+
+## 🛠️ Technologies Used
 
 * **Python 3.11**
 * **Jupyter Notebook / Jupyter Lab**
 * **Pandas**
 * **PyArrow**
 * **Seaborn**
+* **Streamlit** (for the Dashboard)
 
-## 🏁 Como Começar
+## 🏁 Getting Started
 
-Siga estas instruções para configurar e rodar o projeto localmente.
+Follow these instructions to set up and run the project locally.
 
-### Pré-requisitos
+### Prerequisites
 
-Você precisará ter o Python 3 e um gerenciador de pacotes (como `pip`) instalados em sua máquina.
+You will need to have Python 3 and a package manager (like `pip`) installed on your machine.
 
-### Instalação
+### Installation
 
-1.  Clone o repositório:
+1.  Clone the repository:
     ```bash
-    git clone [https://github.com/seu-usuario/data-sus-project.git](https://github.com/seu-usuario/data-sus-project.git)
+    git clone [https://github.com/Maikoandre/DataSUS-Analysis.git](https://github.com/Maikoandre/DataSUS-Analysis.git)
     ```
-2.  Acesse o diretório do projeto:
+2.  Navigate to the project directory:
     ```bash
-    cd data-sus-project
+    cd DataSUS-Analysis
     ```
-3.  Instale as bibliotecas necessárias. (É recomendado criar um ambiente virtual).
+3.  Install the required libraries. (It is recommended to create a virtual environment).
     ```bash
-    # Crie um ambiente virtual (opcional, mas recomendado)
+    # Create a virtual environment (optional, but recommended)
     python -m venv venv
-    source venv/bin/activate  # No Windows: .\venv\Scripts\activate
+    source venv/bin/activate  # On Windows: .\venv\Scripts\activate
     
-    # Instale as bibliotecas
-    pip install jupyterlab pandas pyarrow
+    # Install the libraries
+    pip install jupyterlab pandas pyarrow seaborn streamlit matplotlib
     ```
 
-## 🏃 Como Usar
+## 🏃 How to Use
 
-1.  Inicie o Jupyter Lab (ou Notebook) a partir do seu terminal:
+### For Notebook Analysis:
+
+1.  Start Jupyter Lab (or Notebook) from your terminal:
     ```bash
     jupyter lab
     ```
-2.  No seu navegador, abra o arquivo `sia.ipynb`.
-3.  Execute as células do notebook para ver a análise de dados.
+2.  In your browser, open the `sia.ipynb` file.
+3.  Execute the notebook cells to view the data analysis.
+
+### For Streamlit Dashboard:
+
+1.  Run the Streamlit application from your terminal:
+    ```bash
+    streamlit run app.py
+    ```
+2.  The dashboard will open in your default browser, displaying the analysis of SIH data for Bahia.
 
 ---
