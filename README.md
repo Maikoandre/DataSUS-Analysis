@@ -1,6 +1,6 @@
 # Projeto de Análise de Dados do DataSUS (SIA e SINAN)
 
-Este projeto contém um notebook Jupyter e scripts para a análise exploratória de dados dos sistemas de saúde pública do Brasil (DataSUS), com foco no **Sistema de Informações Ambulatoriais (SIA)** e no **Sistema de Informação de Agravos de Notificação (SINAN)**, especificamente para casos de Dengue.
+Este projeto para a análise exploratória de dados dos sistemas de saúde pública do Brasil (DataSUS), com foco no **Sistema de Informações Ambulatoriais (SIA)** e no **Sistema de Informação de Agravos de Notificação (SINAN)**, especificamente para casos de Dengue.
 
 ---
 
