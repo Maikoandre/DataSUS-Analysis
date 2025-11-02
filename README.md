@@ -1,6 +1,6 @@
-# Projeto de Análise de Dados do DataSUS (SIA e SINAN)
+# Projeto de Análise de Dados do DataSUS (SIH e SINAN)
 
-Este projeto para a análise exploratória de dados dos sistemas de saúde pública do Brasil (DataSUS), com foco no **Sistema de Informações Ambulatoriais (SIA)** e no **Sistema de Informação de Agravos de Notificação (SINAN)**, especificamente para casos de Dengue.
+Este projeto para a análise exploratória de dados dos sistemas de saúde pública do Brasil (DataSUS), com foco no **Sistema de Informações Hospitalares (SIH)** e no **Sistema de Informação de Agravos de Notificação (SINAN)**, especificamente para casos de Dengue.
 
 ---
 
@@ -18,13 +18,13 @@ Este projeto para a análise exploratória de dados dos sistemas de saúde públ
 
 ## 📖 Sobre o Projeto
 
-O objetivo deste repositório é processar, analisar e extrair insights de grandes volumes de dados do DataSUS. A análise principal está contida no notebook `sia.ipynb`, que provavelmente lida com os dados de produção ambulatorial (SIA).
+O objetivo deste repositório é processar, analisar e extrair insights de grandes volumes de dados do DataSUS. A análise principal está contida no notebook `sih.ipynb`, que provavelmente lida com os dados de produção hospitalar (SIH).
 
 O projeto também inclui datasets de amostra, como dados de notificação de Dengue do SINAN para 2024 e um arquivo de municípios, permitindo a análise e o cruzamento de informações.
 
 ## 🗂️ Estrutura dos Arquivos
 
-* **`sia.ipynb`**: Notebook Jupyter principal contendo o código para análise dos dados do Sistema de Informações Ambulatoriais (SIA).
+* **`sih.ipynb`**: Notebook Jupyter principal contendo o código para análise dos dados do Sistema de Informações Ambulatoriais (SIA).
 * **`datasets/`**: Diretório contendo os dados utilizados nas análises.
     * **`RD202401.parquet`**: Provavelmente um arquivo de "Produção Ambulatorial Reduzida" (SIA) referente a Janeiro de 2024, em formato Parquet.
     * **`sinan_dengue_sample_2024.parquet`**: Um arquivo de amostra com dados de notificações de Dengue do SINAN para o ano de 2024.
