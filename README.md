@@ -32,10 +32,11 @@ O projeto também inclui datasets de amostra, como dados de notificação de Den
 
 ## 🛠️ Tecnologias Utilizadas
 
-* **Python 3.x**
+* **Python 3.11**
 * **Jupyter Notebook / Jupyter Lab**
-* **Pandas** (ou Polars/DuckDB, para manipulação dos arquivos `.parquet`)
-* **PyArrow** (para leitura de arquivos Parquet)
+* **Pandas**
+* **PyArrow**
+* **Seaborn**
 
 ## 🏁 Como Começar
 
